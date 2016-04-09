@@ -1,3 +1,4 @@
 document.getElementById("start").onclick = function() {
-  this.style.display = "none";
+  document.getElementById("container").style.display = "none";
+  document.getElementById("gaming").style.display = "flex";
 };

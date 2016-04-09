@@ -5,9 +5,6 @@ body {
 .radius {
   border-radius: 30px;
 }
-.container {
-  border: ipx solid #000;
-}
 #main {
   margin: 0 auto;
 }
@@ -22,8 +19,12 @@ body {
 }
 #inside {
   background: rgba(255,255,255,0.4);
+}
+#container {
+  border: ipx solid #000;
   display: -webkit-flex;
   display: flex;
+  height: 100%;
   -webkit-align-items: center;
   align-items: center;
   -webkit-justify-content: center;
@@ -52,4 +53,19 @@ body {
 }
 #start:active {
   color: #000;
+}
+#gaming {
+  display: none;
+  height: 100%;
+}
+#left {
+  height: 100%;
+  background: red;
+  -webkit-flex-basis: 60%;
+  flex-basis: 60%;}
+#right {
+  height: 100%;
+  background: yellow;
+  -webkit-flex-basis: 40%;
+  flex-basis: 40%;
 }
