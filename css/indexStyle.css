@@ -1,4 +1,55 @@
+body {
+  background: url("../img/3.jpg");
+  background-size: cover;
+}
+.radius {
+  border-radius: 30px;
+}
+.container {
+  border: ipx solid #000;
+}
+#main {
+  margin: 0 auto;
+}
 #head {
-  background: url("../img/title.png") center no-repeat;
-  height: 200px;
+  background: url("../img/title3.png") no-repeat;
+  height: 110px;
+  width: 900px;
+}
+#game-body {
+  margin: 0 20px;
+  box-shadow: 1px 2px 3px #ddd;
+}
+#inside {
+  background: rgba(255,255,255,0.4);
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+#poke {
+  width: 300px;
+  height: 300px;
+  background: url("../img/b1.png");
+  background-size: contain;
+}
+#start {
+  width: 600px;
+  height: 150px;
+  background: transparent;
+  border: 0;
+  font-size: 100px;
+  top: 40%;
+  left: 30%;
+  font-weight: bold;
+  margin-top: -30px;
+  color: blue;
+}
+#start:hover {
+  color: #0b0bab;
+}
+#start:active {
+  color: #000;
 }
