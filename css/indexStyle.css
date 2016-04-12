@@ -15,7 +15,6 @@ body {
   width: 10%;
   margin-left: 10px;
   font-size: 60px;
-  /*line-height: 1.7em;*/
 }
 .poke {
   height: 100%;
@@ -95,7 +94,7 @@ body {
 }
 .poke li {
   position: relative;
-  width: 15%;
+  width: 20%;
   height: 60%;
   margin-right: -50px;
 }

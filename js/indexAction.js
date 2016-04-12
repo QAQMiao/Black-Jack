@@ -1,6 +1,17 @@
-var flower = ["b","r","s","f"];   //store the four kind of poker suit
-var map = [];   //use an array to record this poker has been delivered or not.0 is avaible and 1 is unavaible.
+//store the four kind of poker suit
+var flower = ["b","r","s","f"];
 
+//use an array to record this poker has been delivered or not.0 is avaible and 1 is unavaible.
+var map = [];
+
+/***
+singleton for maker and player
+score -- the sum of pokers
+numOfA -- the number of poker A
+setScore -- add the sum of pokers
+getScore -- get the sum of pokers now
+getNumOfA -- get the number of poker A now
+***/
 var maker = function(){
   var score = 0;
   var numOfA = 0;
@@ -27,6 +38,7 @@ var maker = function(){
     }
   };
 }();
+
 var player = function(){
   var score = 0;
   var numOfA = 0;
@@ -57,8 +69,39 @@ var player = function(){
   };
 }();
 
+//bind click event for start/stand/hit/restart button
 document.getElementById("start").onclick = initStart;
 
+document.getElementById("stand").onclick = judgeResult;
+
+document.getElementById("hit").onclick = function() {
+  player.setScore(createPoker("",2));
+  document.getElementById("player-score").innerHTML = "Score:" + calculateScore(player);
+  if(calculateScore(player) > 21)
+  {
+    judgeResult();
+  }
+}
+
+document.getElementById("restart").onclick = function  () {
+   var makerList = document.getElementById("maker-poke");
+   var playerList = document.getElementById("player-poke");
+   while(makerList.hasChildNodes())
+   {
+    makerList.removeChild(makerList.firstChild);
+   }
+   while(playerList.hasChildNodes())
+   {
+    playerList.removeChild(playerList.firstChild);
+   }
+   initStart();
+   var msg = document.getElementById("message");
+   msg.parentNode.removeChild(msg);
+   document.getElementById("hit").style.display = "inline";
+   document.getElementById("stand").style.display = "inline";
+}
+
+//init the UI for gaming
 function initStart() {
   for(var i = 0;i < 54;++i)
     map[i] = 0;
@@ -76,6 +119,13 @@ function initStart() {
   document.getElementById("player-score").innerHTML = "Score:" + calculateScore(player);
 };
 
+/***
+create the poker random.
+1 -- create back of poker for maker
+2 -- create pokers for player
+3 -- create the rest of pokers for maker
+4 -- create the first poker for maker
+***/
 function createPoker(id,p) {
   var poker = document.createElement("li");
   if(p == 1)
@@ -101,6 +151,7 @@ function createPoker(id,p) {
   return time % 13 + 1;
 }
 
+//the AI for maker
 function makerPlay () {
   while(calculateScore(maker) < 17)
   {
@@ -108,25 +159,17 @@ function makerPlay () {
   }
 }
 
-document.getElementById("hit").onclick = function() {
-  player.setScore(createPoker("",2));
-  document.getElementById("player-score").innerHTML = "Score:" + calculateScore(player);
-  if(calculateScore(player) > 21)
-  {
-    judgeResult();
-  }
-}
-
+//judge who is winner
 function judgeResult() {
   document.getElementById("maker-score").innerHTML = "Score:" + calculateScore(maker);
   var standBt = document.getElementById("stand");
   var message = document.createElement("p");
   var playerScore = calculateScore(player);
   var makerScore = calculateScore(maker);
-  if(playerScore > 21)
+  if(playerScore > 21)                //according sum of poker to judge who is winner
     message.innerHTML = "You Bust!";
   else if(makerScore > 21)
-    message.innerHTML = "Maker Bust!";
+    message.innerHTML = "Maker Bust!<br />You Win!";
   else if(playerScore > makerScore)
     message.innerHTML = "You Win!";
   else if(playerScore < makerScore)
@@ -144,30 +187,11 @@ function judgeResult() {
   document.getElementById("maker-poke-back").style.display = "none";
 }
 
-document.getElementById("stand").onclick = judgeResult;
-
-document.getElementById("restart").onclick = function  () {
-   var makerList = document.getElementById("maker-poke");
-   var playerList = document.getElementById("player-poke");
-   while(makerList.hasChildNodes())
-   {
-    makerList.removeChild(makerList.firstChild);
-   }
-   while(playerList.hasChildNodes())
-   {
-    playerList.removeChild(playerList.firstChild);
-   }
-   initStart();
-   var msg = document.getElementById("message");
-   msg.parentNode.removeChild(msg);
-   document.getElementById("hit").style.display = "inline";
-   document.getElementById("stand").style.display = "inline";
-}
-
+//calculate the score by the object
 function calculateScore (ob) {
-  var ans = ob.getScore();
-  var num = ob.getNumOfA();
-  while(ans < 12 && num)
+  var ans = ob.getScore();    //when the A is 1,the sum of poker
+  var num = ob.getNumOfA();   //the number of A
+  while(ans < 12 && num)      //according the sum to deside A is 11 or 1
   {
     ans += 10;
     --num;
@@ -175,20 +199,22 @@ function calculateScore (ob) {
   return ans;
 }
 
+// return the real random number instead of Math.random
 function setRandom() {
   while(1)
   {
-    var nowTime = Date.now();
+    var nowTime = Date.now();   //using now time mod 4/13 to create two number which are random
     if(judgeOccur(nowTime % 4,nowTime % 13))
       break;
   }
   return nowTime;
 }
 
+//judge this poker can be deliver or not
 function judgeOccur(num1,num2) {
-  if(map[num1 * 13 + num2] == 0)
+  if(map[num1 * 13 + num2] == 0)  //this poker isn't be delivered
   {
-    map[num1 * 13 + num2] = 1;
+    map[num1 * 13 + num2] = 1;    //mark this poker has been delivered
     return true;
   }
   return false;
