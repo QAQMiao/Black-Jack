@@ -7,6 +7,8 @@ body {
 }
 .player {
   height: 50%;
+  padding-left: 20px;
+  padding-top: 20px;
 }
 .identity {
   height: 90%;
@@ -21,8 +23,13 @@ body {
   align-items: center;
   justify-content: center;
 }
+.player span {
+  color: #fff;
+  font-size: 30px;
+}
 #main {
   margin: 0 auto;
+  padding-top: 10px;
 }
 #head {
   background: url("../img/title3.png") no-repeat;
@@ -41,12 +48,6 @@ body {
   height: 100%;
   align-items: center;
   justify-content: center;
-}
-#poke {
-  width: 300px;
-  height: 300px;
-  background: url("../img/b1.png");
-  background-size: contain;
 }
 #start {
   width: 600px;
@@ -68,41 +69,17 @@ body {
   display: none;
   height: 100%;
 }
+#score {
+  height: 100%;
+  flex-basis:5%;
+}
 #left {
   height: 100%;
-  flex-basis: 70%;
+  flex-basis: 68%;
 }
 #right {
   height: 100%;
-  flex-basis: 30%;
-}
-#maker-first {
-  background: url("../img/r1.png");
-  background-size: 100% 100%;
-}
-#maker-second {
-  background: url("../img/r2.png");
-  background-size: 100% 100%;
-}
-#maker-third {
-  background: url("../img/r4.png");
-  background-size: 100% 100%;
-}
-#maker-forth {
-  background: url("../img/r10.png");
-  background-size: 100% 100%;
-}
-#maker-fifth {
-  background: url("../img/b1.png");
-  background-size: 100% 100%;
-}
-#maker-sixth {
-  background: url("../img/s4.png");
-  background-size: 100% 100%;
-}
-#maker-seventh {
-  background: url("../img/s4.png");
-  background-size: 100% 100%;
+  flex-basis: 27%;
 }
 #right-top {
   height: 50%;
@@ -120,12 +97,20 @@ body {
   position: relative;
   width: 15%;
   height: 60%;
+  margin-right: -50px;
 }
 #right button {
-  width: 55%;
+  width: 88%;
   height: 50%;
   font-size: 60px;
+  border: 0;
+  background: url("../img/smallbuttonnopush.png");
+  background-size: 100% 100%;
 }
-#hit {
+#right button:active {
+  background: url("../img/smallbutton.png");
+  background-size: 100% 100%;
+}
+#hit,#restart {
   margin-top: -100px;
 }

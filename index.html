@@ -18,16 +18,22 @@
             <button id = "start">Start Game</button>
           </div>
           <div id = "gaming">
+            <div id="score">
+              <div id="left-top" class = "player">
+                <span id = "maker-score">Score:</span>
+              </div>
+              <div id="left-bottom" class = "player">
+                <span id = "player-score">Score:</span>
+              </div>
+            </div>
             <div id = "left">
               <div class = "player">
-                <ul class = "poke">
-                  <li id = "maker-sixth"></li>
-                  <li id = "maker-second"></li>
-                  <li id = "maker-first"></li>
+                <ul class = "poke" id = "maker-poke">
                 </ul>
               </div>
               <div class = "player">
-                <div class="poke"></div>
+                <ul class = "poke" id = "player-poke">
+                </ul>
               </div>
             </div>
             <div id = "right">
@@ -36,18 +42,15 @@
               </div>
               <div id="right-bottom">
                 <button id="hit">Hit</button>
-              </div>
+                <button id="restart">Restart</button>
+              <div>
             </div>
           </div>
         </div>
       </div>
     </div>
     <script type="text/javascript" src = "js/jquery.min.js"></script>
-    <script type="text/javascript">
-      $("#main").css("height",$(window).height()*0.95);
-      $("#main").css("width",$(window).width()*0.8);
-      $("#inside").css("height",$("body").height()*0.8);
-    </script>
+    <script type="text/javascript" src = "js/initSize.js"></script>
     <script type="text/javascript" src = "js/indexAction.js"></script>
   </body>
 </html>
