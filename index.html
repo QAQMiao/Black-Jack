@@ -1,55 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <title>BlackJack</title>
     <link rel="Shortcut Icon" href="./img/logo.ico" />
     <link rel="Bookmark" href="./img/logo.ico" />
     <link rel="stylesheet" href="./css/init.css" />
     <link rel="stylesheet" href="./css/indexStyle.css" />
-  </head>
-  <body>
+    <!-- <link href='http://fonts.useso.com/css?family=Passion+One' rel='stylesheet' type='text/css' /> -->
+</head>
+
+<body>
     <div id = "main">
-      <div id = "head"></div>
-      <div class = "radius" id = "game-body">
-        <div class = "radius" id = "inside">
-          <div id = "container">
-            <button id = "start">Start Game</button>
-          </div>
-          <div id = "gaming">
-            <div id="score">
-              <div id="left-top" class = "player">
-                <span id = "maker-score">Score:</span>
-              </div>
-              <div id="left-bottom" class = "player">
-                <span id = "player-score">Score:</span>
-              </div>
-            </div>
-            <div id = "left">
-              <div class = "player">
-                <ul class = "poke" id = "maker-poke">
-                </ul>
-              </div>
-              <div class = "player">
-                <ul class = "poke" id = "player-poke">
-                </ul>
-              </div>
-            </div>
-            <div id = "right">
-              <div id="right-top">
-                <button id="stand">Stand</button>
-              </div>
-              <div id="right-bottom">
-                <button id="hit">Hit</button>
-                <button id="restart">Restart</button>
-              <div>
-            </div>
-          </div>
+        <div id = "head">
+        	<span id="ID">ID</span>
         </div>
-      </div>
-    </div>
-    <script type="text/javascript" src = "js/jquery.min.js"></script>
-    <script type="text/javascript" src = "js/initSize.js"></script>
-    <script type="text/javascript" src = "js/indexAction.js"></script>
-  </body>
+        <div class="radius" id="game-body">
+            <div class="radius" id="inside">
+                <div id="container">
+                    <button id="start">Start Game</button>
+                </div>
+                <div id="gaming">
+                    <div id="score">
+                        <div id="left-top" class="player">
+                            <span id="maker-score">Score:</span>
+                        </div>
+                        <div id="left-bottom" class="player">
+                            <span id="player-score">Score:</span>
+                        </div>
+                    </div>
+                    <div id="left">
+                        <div class="player">
+                            <ul class="poke" id="maker-poke">
+                            </ul>
+                        </div>
+                        <div class="player">
+                            <ul class="poke" id="player-poke">
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="right">
+                        <div id="right-top">
+                            <button id="stand">Stand</button>
+                        </div>
+                        <div id="right-bottom">
+                            <button id="hit">Hit</button>
+                            <button id="restart">Restart</button>
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript" src="js/jquery.min.js"></script>
+            <script type="text/javascript" src="js/initSize.js"></script>
+            <script type="text/javascript" src="js/indexAction.js"></script>
+</body>
+
 </html>

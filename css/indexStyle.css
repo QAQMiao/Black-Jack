@@ -15,6 +15,7 @@ body {
   width: 10%;
   margin-left: 10px;
   font-size: 60px;
+  /*line-height: 1.7em;*/
 }
 .poke {
   height: 100%;
@@ -33,7 +34,14 @@ body {
 #head {
   background: url("../img/title3.png") no-repeat;
   height: 110px;
-  width: 900px;
+  width: 100%;
+  padding-top: 20px;
+}
+#ID {
+  float:right;
+  color: #fff;
+  font-size: 60px;
+  width: 20%;
 }
 #game-body {
   margin: 0 20px;
@@ -94,7 +102,7 @@ body {
 }
 .poke li {
   position: relative;
-  width: 20%;
+  width: 15%;
   height: 60%;
   margin-right: -50px;
 }
